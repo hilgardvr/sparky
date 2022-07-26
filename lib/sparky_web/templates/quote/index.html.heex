@@ -1,0 +1,11 @@
+<section>
+  <p>
+    <h4>
+      <%= @question.question %>
+    </h4>
+    <%= case @question.quote_answers |> List.first |> Map.get(:type) do
+      :free_text -> '<form action="/quote"> <label for="email">Enter your email: </label><input type="email" id="email" name="email"/><input type="submit"></form>'
+      _ -> '<h2>Unknown type</h2>'
+    end %>
+  </p>
+</section>
